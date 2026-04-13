@@ -457,7 +457,6 @@ input:checked + .slider-sw::before{transform:translateX(20px)}
 
   <main class="content-area">
 
-    <!-- DASHBOARD -->
     <section class="section active" id="sec-dashboard">
       <div class="welcome-banner">
         <div class="banner-content">
@@ -499,9 +498,7 @@ input:checked + .slider-sw::before{transform:translateX(20px)}
         <div class="card-body" id="defaultersList"></div>
       </div>
     </section>
-
-    <!-- STUDENTS -->
-    <section class="section" id="sec-students">
+<section class="section" id="sec-students">
       <div class="section-header">
         <div><div class="section-title">Student Management</div><div class="section-subtitle">Manage all student records across classes</div></div>
         <div class="section-actions">
@@ -525,7 +522,6 @@ input:checked + .slider-sw::before{transform:translateX(20px)}
       </div>
     </section>
 
-    <!-- FEES -->
     <section class="section" id="sec-fees">
       <div class="section-header">
         <div><div class="section-title">Fee Management</div><div class="section-subtitle">Record payments with detailed fee breakdowns</div></div>
@@ -555,7 +551,6 @@ input:checked + .slider-sw::before{transform:translateX(20px)}
       </div>
     </section>
 
-    <!-- FEE STRUCTURE -->
     <section class="section" id="sec-feestructure">
       <div class="section-header">
         <div><div class="section-title">Fee Structure</div><div class="section-subtitle">Define fee components per class — tuition, conveyance, labs, activities etc.</div></div>
@@ -569,7 +564,6 @@ input:checked + .slider-sw::before{transform:translateX(20px)}
       <div id="feeStructureGrid"></div>
     </section>
 
-    <!-- ATTENDANCE -->
     <section class="section" id="sec-attendance">
       <div class="section-header">
         <div><div class="section-title">Attendance Tracking</div><div class="section-subtitle">Mark and monitor daily attendance</div></div>
@@ -593,7 +587,6 @@ input:checked + .slider-sw::before{transform:translateX(20px)}
       <div class="card"><div class="card-body" id="attList"><div class="empty-state"><div class="empty-icon">📋</div><div class="empty-title">Select class to start</div><div class="empty-desc">Choose a class and date above, then click Load Students</div></div></div></div>
     </section>
 
-    <!-- NOTIFICATIONS -->
     <section class="section" id="sec-whatsapp">
       <div class="section-header"><div><div class="section-title">Parent Notifications</div><div class="section-subtitle">Send alerts via WhatsApp, SMS, or email</div></div></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
@@ -629,7 +622,6 @@ input:checked + .slider-sw::before{transform:translateX(20px)}
       </div>
     </section>
 
-    <!-- REPORTS -->
     <section class="section" id="sec-reports">
       <div class="section-header">
         <div><div class="section-title">Reports & Analytics</div><div class="section-subtitle">Comprehensive school performance insights</div></div>
@@ -651,7 +643,6 @@ input:checked + .slider-sw::before{transform:translateX(20px)}
       <div class="card"><div class="card-header"><span class="card-title">Defaulter List</span></div><div class="card-body" id="defaulterReport"></div></div>
     </section>
 
-    <!-- SETTINGS -->
     <section class="section" id="sec-settings">
       <div class="section-header"><div class="section-title">Settings</div></div>
 
@@ -742,7 +733,6 @@ service cloud.firestore {
 </div>
 </div>
 
-<!-- STUDENT MODAL -->
 <div class="modal-overlay hidden" id="studentModal">
   <div class="modal" style="max-width:640px">
     <div class="modal-header"><span class="modal-title" id="studentModalTitle">Add New Student</span><button class="btn-icon" onclick="closeModal('studentModal')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
@@ -779,7 +769,6 @@ service cloud.firestore {
   </div>
 </div>
 
-<!-- FEE MODAL -->
 <div class="modal-overlay hidden" id="feeModal">
   <div class="modal" style="max-width:600px">
     <div class="modal-header"><span class="modal-title">Record Fee Payment</span><button class="btn-icon" onclick="closeModal('feeModal')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
@@ -793,7 +782,6 @@ service cloud.firestore {
         <div class="form-group"><label class="form-label">Month *</label><input type="month" class="form-control" id="feeMonth" onchange="onFeeMonthChange()"/><div class="form-error" id="feeMonthErr">Month required</div></div>
       </div>
 
-      <!-- FEE BREAKDOWN -->
       <div class="fee-breakdown-box" id="feeBreakdownBox">
         <div class="fee-breakdown-title">💡 Fee Components — <span id="feeBreakdownClass">Select student first</span></div>
         <div id="feeComponentsList">
@@ -817,7 +805,6 @@ service cloud.firestore {
   </div>
 </div>
 
-<!-- VIEW STUDENT MODAL -->
 <div class="modal-overlay hidden" id="viewStudentModal">
   <div class="modal" style="max-width:480px">
     <div class="modal-header"><span class="modal-title">Student Details</span><button class="btn-icon" onclick="closeModal('viewStudentModal')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
@@ -836,7 +823,6 @@ service cloud.firestore {
 </div>
 
 <div class="toast-container" id="toastContainer"></div>
-
 <script>
 // ═══════════════════════════════════════════════════
 // FIREBASE CONFIG — Pre-filled from your screenshot
@@ -852,7 +838,7 @@ const FIREBASE_CONFIG = {
 
 // Fee Component definitions
 const FEE_COMPONENTS = [
-  { key: 'tuition',     label: 'Tuition Fee',          icon: '📚', defaultAmt: 3000, alwaysOn: true },
+  { key: 'tuition',     label: 'Tuition Fee',         icon: '📚', defaultAmt: 3000, alwaysOn: true },
   { key: 'computer',    label: 'Computer Lab Fee',      icon: '💻', defaultAmt: 200,  alwaysOn: false },
   { key: 'science',     label: 'Science Lab Fee',       icon: '🔬', defaultAmt: 150,  alwaysOn: false },
   { key: 'sports',      label: 'Sports / Activity Fee', icon: '⚽', defaultAmt: 100,  alwaysOn: false },
@@ -871,7 +857,6 @@ const S = {
   db: null, auth: null, firebaseReady: false, syncInProgress: false,
   students: [], fees: [], attendance: {}, alerts: [],
   settings: { schoolName:'', academicYear:'2024-25', phone:'', address:'', board:'CBSE' },
-  // feeStructure: { classId: { tuition: {amount, enabled}, computer: {amount, enabled}, ... } }
   feeStructure: {},
   currentSection: 'dashboard', tempAtt: {}
 };
@@ -901,7 +886,7 @@ const debouncedStudentSearch = U.debounce(renderStudents, 300);
 const debouncedFeeSearch = U.debounce(renderFees, 300);
 
 // ═══════════════════════════════════════════════════
-// PERSISTENCE — localStorage + Firebase
+// PERSISTENCE — localStorage + Firebase (REAL-TIME FIX)
 // ═══════════════════════════════════════════════════
 function saveLocal() {
   try {
@@ -926,7 +911,65 @@ function loadLocal() {
   } catch(e) { console.error('LocalStorage load error:', e); }
 }
 
-// THE FIXED Firebase save — saves ALL data correctly
+// FIREBASE REAL-TIME LISTENERS
+let unsubscribeListeners = [];
+
+function setupRealtimeListeners() {
+  if (!S.db || !S.user) return;
+  const uid = S.user.uid || 'demo_user';
+  const docRef = S.db.collection('schools').doc(uid);
+
+  unsubscribeListeners.forEach(unsub => unsub());
+  unsubscribeListeners = [];
+
+  unsubscribeListeners.push(
+    docRef.onSnapshot(doc => {
+      if (doc.exists) {
+        const data = doc.data();
+        if (data.settings) S.settings = {...S.settings, ...data.settings};
+        if (data.feeStructure) S.feeStructure = data.feeStructure;
+        updateDashboard();
+      }
+    })
+  );
+
+  unsubscribeListeners.push(
+    docRef.collection('students').onSnapshot(snap => {
+      S.students = snap.docs.map(d => d.data());
+      saveLocal();
+      if(S.currentSection === 'students') renderStudents();
+      updateDashboard();
+    })
+  );
+
+  unsubscribeListeners.push(
+    docRef.collection('fees').onSnapshot(snap => {
+      S.fees = snap.docs.map(d => d.data());
+      saveLocal();
+      if(S.currentSection === 'fees') { updateFeeStats(); renderFees(); }
+      updateDashboard();
+    })
+  );
+
+  unsubscribeListeners.push(
+    docRef.collection('alerts').onSnapshot(snap => {
+      S.alerts = snap.docs.map(d => d.data());
+      saveLocal();
+      if(S.currentSection === 'whatsapp') renderAlerts();
+    })
+  );
+
+  unsubscribeListeners.push(
+    docRef.collection('meta').doc('attendance').onSnapshot(doc => {
+      if (doc.exists && doc.data().data) {
+        S.attendance = doc.data().data;
+        saveLocal();
+        if(S.currentSection === 'attendance') loadAttendance();
+      }
+    })
+  );
+}
+
 async function syncToFirebase() {
   if (!S.db || !S.user || S.syncInProgress) return;
   S.syncInProgress = true;
@@ -934,87 +977,46 @@ async function syncToFirebase() {
   try {
     const uid = S.user.uid || 'demo_user';
     const docRef = S.db.collection('schools').doc(uid);
-    // Save in chunks to avoid Firestore document size limits (1MB limit)
     const batch = S.db.batch();
     
-    // Main data doc
-    batch.set(docRef, {
-      settings: S.settings,
-      feeStructure: S.feeStructure,
-      updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
-      updatedBy: S.user.email || 'unknown'
-    }, { merge: true });
-    
+    batch.set(docRef, { settings: S.settings, feeStructure: S.feeStructure, updatedAt: firebase.firestore.FieldValue.serverTimestamp(), updatedBy: S.user.email || 'unknown' }, { merge: true });
     await batch.commit();
     
-    // Save students as subcollection (handles large datasets)
     const studentsCol = docRef.collection('students');
-    const feesCol = docRef.collection('fees');
-    const alertsCol = docRef.collection('alerts');
-    
-    // Save students
     const stuBatch = S.db.batch();
     S.students.forEach(s => stuBatch.set(studentsCol.doc(s.id), s));
-    await stuBatch.commit();
+    if(S.students.length > 0) await stuBatch.commit();
     
-    // Save fees (in chunks of 400 to avoid batch limit)
+    const feesCol = docRef.collection('fees');
     for (let i = 0; i < S.fees.length; i += 400) {
       const feeBatch = S.db.batch();
       S.fees.slice(i, i+400).forEach(f => feeBatch.set(feesCol.doc(f.id), f));
-      await feeBatch.commit();
+      if(S.fees.slice(i, i+400).length > 0) await feeBatch.commit();
     }
     
-    // Save alerts
+    const alertsCol = docRef.collection('alerts');
     const alertBatch = S.db.batch();
     S.alerts.forEach(a => alertBatch.set(alertsCol.doc(a.id), a));
-    await alertBatch.commit();
+    if(S.alerts.length > 0) await alertBatch.commit();
     
-    // Save attendance as single doc (compressed)
     await docRef.collection('meta').doc('attendance').set({ data: S.attendance, updatedAt: new Date() });
     
     updateFbStatusUI('connected');
-    U.el('chipSync').textContent = '✓ Synced';
-    console.log('Firebase sync complete ✓');
+    if(U.el('chipSync')) U.el('chipSync').textContent = '✓ Synced';
   } catch(e) {
     console.error('Firebase sync error:', e.message);
     updateFbStatusUI('disconnected');
-    // Don't show error toast for every sync — just log
   } finally {
     S.syncInProgress = false;
   }
 }
 
-// Load ALL data from Firebase
 async function loadFromFirebase() {
   if (!S.db || !S.user) return false;
   try {
-    const uid = S.user.uid || 'demo_user';
-    const docRef = S.db.collection('schools').doc(uid);
-    const doc = await docRef.get();
-    
-    if (doc.exists) {
-      const data = doc.data();
-      if (data.settings) S.settings = {...S.settings, ...data.settings};
-      if (data.feeStructure) S.feeStructure = data.feeStructure;
-    }
-    
-    // Load subcollections
-    const [stuSnap, feesSnap, alertsSnap, attSnap] = await Promise.all([
-      docRef.collection('students').get(),
-      docRef.collection('fees').get(),
-      docRef.collection('alerts').get(),
-      docRef.collection('meta').doc('attendance').get()
-    ]);
-    
-    if (!stuSnap.empty) S.students = stuSnap.docs.map(d => d.data());
-    if (!feesSnap.empty) S.fees = feesSnap.docs.map(d => d.data());
-    if (!alertsSnap.empty) S.alerts = alertsSnap.docs.map(d => d.data());
-    if (attSnap.exists && attSnap.data().data) S.attendance = attSnap.data().data;
-    
-    // Also save locally
-    saveLocal();
+    setupRealtimeListeners();
     updateFbStatusUI('connected');
-    Toast.success('Firebase Connected!', `Loaded ${S.students.length} students from cloud`);
+    Toast.success('Firebase Connected!', `Real-time cloud sync activated`);
     return true;
   } catch(e) {
     console.error('Firebase load error:', e.message);
@@ -1025,7 +1027,6 @@ async function loadFromFirebase() {
 
 function save() {
   saveLocal();
-  // Debounced Firebase sync
   clearTimeout(S._syncTimer);
   S._syncTimer = setTimeout(() => syncToFirebase(), 2000);
 }
@@ -1053,7 +1054,7 @@ function updateFbStatusUI(status) {
 }
 
 // ═══════════════════════════════════════════════════
-// TOAST
+// TOAST & CONFIRM
 // ═══════════════════════════════════════════════════
 const Toast = {
   icons: { success:'✅', error:'❌', warning:'⚠️', info:'ℹ️' },
@@ -1071,9 +1072,6 @@ const Toast = {
   info(t,m) { this.show(t,m,'info'); }
 };
 
-// ═══════════════════════════════════════════════════
-// CONFIRM
-// ═══════════════════════════════════════════════════
 let confirmResolve = null;
 function showConfirm(title, msg, icon='⚠️', danger=true) {
   return new Promise(res => {
@@ -1089,7 +1087,7 @@ function resolveConfirm(result) { U.el('confirmOverlay').style.display='none'; i
 document.addEventListener('keydown', e => { if(e.key==='Escape'){document.querySelectorAll('.modal-overlay').forEach(m=>m.classList.add('hidden'));resolveConfirm(false);} });
 
 // ═══════════════════════════════════════════════════
-// THEME
+// THEME & NAVIGATION
 // ═══════════════════════════════════════════════════
 function toggleTheme() {
   const html = document.documentElement;
@@ -1104,9 +1102,6 @@ function toggleTheme() {
   }
 }
 
-// ═══════════════════════════════════════════════════
-// NAVIGATION
-// ═══════════════════════════════════════════════════
 const TITLES = { dashboard:'Dashboard', students:'Student Management', fees:'Fee Management', feestructure:'Fee Structure', attendance:'Attendance Tracking', whatsapp:'Parent Notifications', reports:'Reports & Analytics', settings:'Settings' };
 
 function showSection(id) {
@@ -1163,9 +1158,6 @@ function closeModal(id) { U.el(id).classList.add('hidden'); }
 
 document.querySelectorAll('.modal-overlay').forEach(o => o.addEventListener('click', e => { if(e.target===o) o.classList.add('hidden'); }));
 
-// ═══════════════════════════════════════════════════
-// ROLE ACCESS
-// ═══════════════════════════════════════════════════
 function applyRoleRestrictions() {
   const role = S.role;
   if (role === 'viewer') {
@@ -1212,7 +1204,6 @@ function handleLogin() {
   btn.disabled=true; btn.innerHTML='<span class="spinner"></span> Signing in...';
   U.el('loginError').style.display='none';
   
-  // Try Firebase auth first
   if (S.firebaseReady && S.auth) {
     S.auth.signInWithEmailAndPassword(email, pass)
       .then(async cred => {
@@ -1222,11 +1213,9 @@ function handleLogin() {
         bootApp();
       })
       .catch(err => {
-        // If Firebase auth fails, try demo mode
         if (err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') {
           showLoginError('Firebase: ' + (err.code==='auth/user-not-found'?'No account with this email':'Wrong password') + '. Create an account in Firebase Auth first, or use Demo Mode.');
         } else {
-          // For other errors (no internet, etc.), fallback to local mode
           console.warn('Firebase auth error, using local mode:', err.message);
           S.user = { email, displayName: email.split('@')[0], uid: 'local_'+btoa(email).replace(/=/g,'') };
           loadLocal();
@@ -1235,7 +1224,6 @@ function handleLogin() {
         btn.disabled=false; btn.innerHTML='Sign In to Dashboard';
       });
   } else {
-    // Demo / local mode
     setTimeout(() => {
       S.user = { email, displayName: email.split('@')[0].replace(/[^a-zA-Z\s]/g,' ').trim()||'Admin', uid: 'local_'+Date.now() };
       loadLocal();
@@ -1290,10 +1278,7 @@ function getClassFeeStructure(cls) {
   const saved = S.feeStructure[cls] || {};
   const result = {};
   FEE_COMPONENTS.forEach(comp => {
-    result[comp.key] = {
-      amount: saved[comp.key]?.amount ?? comp.defaultAmt,
-      enabled: saved[comp.key]?.enabled ?? (comp.alwaysOn || false)
-    };
+    result[comp.key] = { amount: saved[comp.key]?.amount ?? comp.defaultAmt, enabled: saved[comp.key]?.enabled ?? (comp.alwaysOn || false) };
   });
   return result;
 }
@@ -1334,24 +1319,10 @@ function renderFeeStructure() {
           <div class="fee-comp-item">
             <span style="font-size:16px;margin-right:4px">${comp.icon}</span>
             <span class="fee-comp-label">${comp.label}</span>
-            <input type="number" class="fee-comp-input" 
-              id="fstruct-${cls}-${comp.key}-amt" 
-              value="${struct[comp.key].amount}"
-              onchange="updateStructTotal('${cls}')"
-              placeholder="0" min="0"
-              ${comp.alwaysOn?'':''}
-            />
-            ${!comp.alwaysOn ? `
-              <label class="fee-comp-enabled">
-                <input type="checkbox" id="fstruct-${cls}-${comp.key}-en" ${struct[comp.key].enabled?'checked':''} onchange="updateStructTotal('${cls}')"/>
-                Enable
-              </label>
-            ` : '<span style="font-size:11px;color:var(--success);font-weight:600">Always</span>'}
+            <input type="number" class="fee-comp-input" id="fstruct-${cls}-${comp.key}-amt" value="${struct[comp.key].amount}" onchange="updateStructTotal('${cls}')" placeholder="0" min="0"/>
+            ${!comp.alwaysOn ? `<label class="fee-comp-enabled"><input type="checkbox" id="fstruct-${cls}-${comp.key}-en" ${struct[comp.key].enabled?'checked':''} onchange="updateStructTotal('${cls}')"/> Enable</label>` : '<span style="font-size:11px;color:var(--success);font-weight:600">Always</span>'}
           </div>
         `).join('')}
-        <div style="font-size:11.5px;color:var(--text3);padding:8px 0 0;border-top:1px solid var(--border);margin-top:8px">
-          🚌 Conveyance fee is set per-student (in Student profile)
-        </div>
       </div>
     `;
   }).join('');
@@ -1381,10 +1352,7 @@ function saveFeeStructure() {
     FEE_COMPONENTS.filter(c=>!c.perStudent).forEach(comp => {
       const amtEl = U.el(`fstruct-${cls}-${comp.key}-amt`);
       const enEl = U.el(`fstruct-${cls}-${comp.key}-en`);
-      S.feeStructure[cls][comp.key] = {
-        amount: amtEl ? Number(amtEl.value||0) : comp.defaultAmt,
-        enabled: comp.alwaysOn ? true : (enEl?.checked||false)
-      };
+      S.feeStructure[cls][comp.key] = { amount: amtEl ? Number(amtEl.value||0) : comp.defaultAmt, enabled: comp.alwaysOn ? true : (enEl?.checked||false) };
     });
   });
   save();
@@ -1394,7 +1362,7 @@ function saveFeeStructure() {
 // ═══════════════════════════════════════════════════
 // FEE MODAL — dynamic breakdown
 // ═══════════════════════════════════════════════════
-let currentFeeBreakdown = {}; // tracks which components are active in modal
+let currentFeeBreakdown = {}; 
 
 function onFeeStudentChange() {
   const stuId = U.el('feeStu').value;
@@ -1427,21 +1395,11 @@ function renderFeeBreakdownInModal(student) {
     return `
       <div class="fee-component-row" id="fcomp-row-${comp.key}">
         <div class="fee-comp-name">${b.icon || comp.icon} ${comp.label}</div>
-        <input type="number" 
-          style="width:90px;padding:5px 8px;border:1.5px solid var(--border2);border-radius:6px;font-size:13px;font-weight:600;color:var(--text);background:var(--surface);text-align:right;outline:none;font-family:var(--mono)"
-          value="${b.amount}" min="0"
-          onchange="updateFeeCompAmount('${comp.key}', this.value)"
-          id="fcomp-amt-${comp.key}"
-        />
-        <button class="fee-comp-toggle ${b.enabled?'included':''}" 
-          onclick="toggleFeeComp('${comp.key}')"
-          id="fcomp-tog-${comp.key}"
-          ${comp.alwaysOn ? 'disabled style="opacity:.5;cursor:not-allowed"' : ''}
-        >${b.enabled?'✓ Included':'+ Include'}</button>
+        <input type="number" style="width:90px;padding:5px 8px;border:1.5px solid var(--border2);border-radius:6px;font-size:13px;font-weight:600;color:var(--text);background:var(--surface);text-align:right;outline:none;font-family:var(--mono)" value="${b.amount}" min="0" onchange="updateFeeCompAmount('${comp.key}', this.value)" id="fcomp-amt-${comp.key}"/>
+        <button class="fee-comp-toggle ${b.enabled?'included':''}" onclick="toggleFeeComp('${comp.key}')" id="fcomp-tog-${comp.key}" ${comp.alwaysOn ? 'disabled style="opacity:.5;cursor:not-allowed"' : ''}>${b.enabled?'✓ Included':'+ Include'}</button>
       </div>
     `;
   }).filter(Boolean).join('');
-  
   recalcFeeTotal();
 }
 
@@ -1449,10 +1407,7 @@ function toggleFeeComp(key) {
   if (!currentFeeBreakdown[key]) return;
   currentFeeBreakdown[key].enabled = !currentFeeBreakdown[key].enabled;
   const tog = U.el(`fcomp-tog-${key}`);
-  if (tog) {
-    tog.textContent = currentFeeBreakdown[key].enabled ? '✓ Included' : '+ Include';
-    tog.className = 'fee-comp-toggle ' + (currentFeeBreakdown[key].enabled?'included':'');
-  }
+  if (tog) { tog.textContent = currentFeeBreakdown[key].enabled ? '✓ Included' : '+ Include'; tog.className = 'fee-comp-toggle ' + (currentFeeBreakdown[key].enabled?'included':''); }
   recalcFeeTotal();
 }
 
@@ -1463,10 +1418,7 @@ function updateFeeCompAmount(key, val) {
 
 function recalcFeeTotal() {
   let total = 0;
-  FEE_COMPONENTS.forEach(comp => {
-    const b = currentFeeBreakdown[comp.key];
-    if (b && b.enabled) total += Number(b.amount||0);
-  });
+  FEE_COMPONENTS.forEach(comp => { const b = currentFeeBreakdown[comp.key]; if (b && b.enabled) total += Number(b.amount||0); });
   U.el('feeTotalDisplay').textContent = '₹'+total.toLocaleString('en-IN');
 }
 
@@ -1511,7 +1463,6 @@ function renderActivity() {
   acts.sort((a,b)=>new Date(b.time||0)-new Date(a.time||0));
   
   if (!acts.length) { el.innerHTML='<div class="empty-state" style="padding:24px"><div class="empty-icon">📭</div><div class="empty-desc">No activity yet. Add students to get started!</div></div>'; return; }
-  
   el.innerHTML = acts.slice(0,8).map(a=>`<div style="display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)"><span style="font-size:18px">${a.icon}</span><div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${a.title}</div><div style="font-size:11.5px;color:var(--text3);display:flex;justify-content:space-between;margin-top:2px"><span>${a.sub||''}</span><span>${U.fmtTime(a.time)}</span></div></div></div>`).join('');
 }
 
@@ -1522,13 +1473,7 @@ function renderDefaultersCard() {
   if (!defs.length) { el.innerHTML='<div class="empty-state" style="padding:20px"><div class="empty-desc">No pending fees! All dues cleared. 🎉</div></div>'; return; }
   el.innerHTML = defs.slice(0,5).map(s=>{
     const owed=S.fees.filter(f=>f.studentId===s.id&&f.status!=='paid').reduce((t,f)=>t+(Number(f.totalAmount||f.amount)||0),0);
-    return `<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)">
-      <div style="display:flex;align-items:center;gap:10px">
-        <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--danger),#f97316);display:flex;align-items:center;justify-content:center;color:white;font-size:13px;font-weight:700">${U.escapeHTML(U.avatar(s.name).toUpperCase())}</div>
-        <div><div style="font-weight:700;font-size:13px;color:var(--text)">${U.escapeHTML(s.name)}</div><div style="font-size:11.5px;color:var(--text3)">Class ${U.escapeHTML(s.class)} · ${U.escapeHTML(s.roll||'—')}</div></div>
-      </div>
-      <div style="text-align:right"><div style="font-size:14px;font-weight:800;color:var(--danger)">${U.fmtCurrency(owed)}</div><div style="font-size:11px;color:var(--text3)">pending</div></div>
-    </div>`;
+    return `<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;gap:10px"><div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--danger),#f97316);display:flex;align-items:center;justify-content:center;color:white;font-size:13px;font-weight:700">${U.escapeHTML(U.avatar(s.name).toUpperCase())}</div><div><div style="font-weight:700;font-size:13px;color:var(--text)">${U.escapeHTML(s.name)}</div><div style="font-size:11.5px;color:var(--text3)">Class ${U.escapeHTML(s.class)} · ${U.escapeHTML(s.roll||'—')}</div></div></div><div style="text-align:right"><div style="font-size:14px;font-weight:800;color:var(--danger)">${U.fmtCurrency(owed)}</div><div style="font-size:11px;color:var(--text3)">pending</div></div></div>`;
   }).join('');
   if (defs.length>5) el.innerHTML+=`<div style="text-align:center;padding:10px;font-size:13px;color:var(--text3)">+${defs.length-5} more defaulters</div>`;
 }
@@ -1554,22 +1499,7 @@ function renderStudents() {
   
   if (!list.length) { tbody.innerHTML=`<tr><td colspan="9"><div class="empty-state"><div class="empty-icon">👨‍🎓</div><div class="empty-title">No students found</div><div class="empty-desc">${S.students.length===0?'Add your first student':'Try adjusting filters'}</div></div></td></tr>`; return; }
   
-  tbody.innerHTML = list.map((s,i)=>`
-    <tr>
-      <td style="color:var(--text3);font-size:12px;font-weight:600">${i+1}</td>
-      <td><div style="display:flex;align-items:center;gap:10px"><div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#7c3aed);display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:800;flex-shrink:0">${U.escapeHTML(U.avatar(s.name).toUpperCase())}</div><div><div class="td-primary" style="cursor:pointer" onclick="viewStudent('${s.id}')">${U.escapeHTML(s.name)}</div><div style="font-size:11px;color:var(--text3)">${U.escapeHTML(s.email||'')}</div></div></div></td>
-      <td><span class="badge badge-primary">Class ${U.escapeHTML(s.class)}</span></td>
-      <td class="td-mono">${U.escapeHTML(s.roll||'—')}</td>
-      <td style="color:var(--text2)">${U.escapeHTML(s.father||'—')}</td>
-      <td style="color:var(--text2)">${U.escapeHTML(s.phone||'—')}</td>
-      <td style="color:var(--text2)">${Number(s.conveyance||0)>0?U.fmtCurrency(s.conveyance)+'/mo':'<span style="color:var(--text3)">None</span>'}</td>
-      <td><span class="badge ${s.status==='active'?'badge-success':'badge-warning'}">${s.status==='active'?'Active':'Inactive'}</span></td>
-      <td><div style="display:flex;gap:4px">
-        <button class="btn-icon" onclick="openStudentModal('${s.id}')" title="Edit" style="width:30px;height:30px;border-radius:6px"><svg viewBox="0 0 24 24" width="13" height="13"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
-        <button class="btn-icon btn-icon-danger" onclick="deleteStudent('${s.id}','${U.escapeHTML(s.name)}')" title="Delete" style="width:30px;height:30px;border-radius:6px"><svg viewBox="0 0 24 24" width="13" height="13"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg></button>
-      </div></td>
-    </tr>
-  `).join('');
+  tbody.innerHTML = list.map((s,i)=>`<tr><td style="color:var(--text3);font-size:12px;font-weight:600">${i+1}</td><td><div style="display:flex;align-items:center;gap:10px"><div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#7c3aed);display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:800;flex-shrink:0">${U.escapeHTML(U.avatar(s.name).toUpperCase())}</div><div><div class="td-primary" style="cursor:pointer" onclick="viewStudent('${s.id}')">${U.escapeHTML(s.name)}</div><div style="font-size:11px;color:var(--text3)">${U.escapeHTML(s.email||'')}</div></div></div></td><td><span class="badge badge-primary">Class ${U.escapeHTML(s.class)}</span></td><td class="td-mono">${U.escapeHTML(s.roll||'—')}</td><td style="color:var(--text2)">${U.escapeHTML(s.father||'—')}</td><td style="color:var(--text2)">${U.escapeHTML(s.phone||'—')}</td><td style="color:var(--text2)">${Number(s.conveyance||0)>0?U.fmtCurrency(s.conveyance)+'/mo':'<span style="color:var(--text3)">None</span>'}</td><td><span class="badge ${s.status==='active'?'badge-success':'badge-warning'}">${s.status==='active'?'Active':'Inactive'}</span></td><td><div style="display:flex;gap:4px"><button class="btn-icon" onclick="openStudentModal('${s.id}')" title="Edit" style="width:30px;height:30px;border-radius:6px"><svg viewBox="0 0 24 24" width="13" height="13"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="btn-icon btn-icon-danger" onclick="deleteStudent('${s.id}','${U.escapeHTML(s.name)}')" title="Delete" style="width:30px;height:30px;border-radius:6px"><svg viewBox="0 0 24 24" width="13" height="13"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg></button></div></td></tr>`).join('');
 }
 
 function openStudentModal(id=null) {
@@ -1682,7 +1612,7 @@ function viewStudent(id) {
 }
 
 // ═══════════════════════════════════════════════════
-// FEES
+// FEES CRUD
 // ═══════════════════════════════════════════════════
 function updateFeeStats() {
   const paid=S.fees.filter(f=>f.status==='paid').reduce((t,f)=>t+(Number(f.totalAmount||f.amount)||0),0);
@@ -1712,18 +1642,7 @@ function renderFees() {
     const conveyance=bd.conveyance?.enabled?Number(bd.conveyance.amount||0):0;
     const labExtra=FEE_COMPONENTS.filter(c=>!['tuition','conveyance'].includes(c.key)).reduce((t,c)=>t+(bd[c.key]?.enabled?Number(bd[c.key].amount||0):0),0);
     const total=Number(f.totalAmount||f.amount||0);
-    return `<tr>
-      <td class="td-mono">${U.escapeHTML(f.receipt||'—')}</td>
-      <td class="td-primary">${U.escapeHTML(f.studentName||'Unknown')}</td>
-      <td><span class="badge badge-primary">Class ${U.escapeHTML(f.studentClass||'?')}</span></td>
-      <td>${U.escapeHTML(U.fmtMonth(f.month))}</td>
-      <td style="color:var(--text2)">${tuition>0?U.fmtCurrency(tuition):'—'}</td>
-      <td style="color:var(--text2)">${conveyance>0?U.fmtCurrency(conveyance):'—'}</td>
-      <td style="color:var(--text2)">${labExtra>0?U.fmtCurrency(labExtra):'—'}</td>
-      <td style="font-weight:800;font-size:15px;color:var(--text)">${U.fmtCurrency(total)}</td>
-      <td style="color:var(--text2)">${modeLabel[f.mode]||U.escapeHTML(f.mode||'—')}</td>
-      <td><span class="badge ${f.status==='paid'?'badge-success':f.status==='partial'?'badge-warning':'badge-danger'}">${U.escapeHTML(f.status)}</span></td>
-    </tr>`;
+    return `<tr><td class="td-mono">${U.escapeHTML(f.receipt||'—')}</td><td class="td-primary">${U.escapeHTML(f.studentName||'Unknown')}</td><td><span class="badge badge-primary">Class ${U.escapeHTML(f.studentClass||'?')}</span></td><td>${U.escapeHTML(U.fmtMonth(f.month))}</td><td style="color:var(--text2)">${tuition>0?U.fmtCurrency(tuition):'—'}</td><td style="color:var(--text2)">${conveyance>0?U.fmtCurrency(conveyance):'—'}</td><td style="color:var(--text2)">${labExtra>0?U.fmtCurrency(labExtra):'—'}</td><td style="font-weight:800;font-size:15px;color:var(--text)">${U.fmtCurrency(total)}</td><td style="color:var(--text2)">${modeLabel[f.mode]||U.escapeHTML(f.mode||'—')}</td><td><span class="badge ${f.status==='paid'?'badge-success':f.status==='partial'?'badge-warning':'badge-danger'}">${U.escapeHTML(f.status)}</span></td></tr>`;
   }).join('');
 }
 
@@ -1902,7 +1821,7 @@ function renderAlerts() {
 }
 
 // ═══════════════════════════════════════════════════
-// REPORTS
+// REPORTS & SETTINGS
 // ═══════════════════════════════════════════════════
 function updateReports() {
   U.el('rptStudents').textContent=S.students.length;
@@ -1930,9 +1849,6 @@ function updateReports() {
   U.el('defaulterReport').innerHTML=defs.length?`<div class="table-wrap"><table><thead><tr><th>Student</th><th>Class</th><th>Months</th><th>Total Due</th></tr></thead><tbody>${defs.map(d=>`<tr><td class="td-primary">${U.escapeHTML(d.stu.name)}</td><td><span class="badge badge-primary">Class ${U.escapeHTML(d.stu.class)}</span></td><td>${d.fees.length}</td><td style="font-weight:800;color:var(--danger)">${U.fmtCurrency(d.fees.reduce((t,f)=>t+(Number(f.totalAmount||f.amount)||0),0))}</td></tr>`).join('')}</tbody></table></div>`:'<div class="empty-state" style="padding:24px"><div class="empty-icon">🎉</div><div class="empty-title">All fees cleared!</div></div>';
 }
 
-// ═══════════════════════════════════════════════════
-// SETTINGS
-// ═══════════════════════════════════════════════════
 function initSettings() {
   U.el('cfgSchoolName').value=S.settings.schoolName||'';
   U.el('cfgYear').value=S.settings.academicYear||'';
@@ -1940,7 +1856,6 @@ function initSettings() {
   U.el('cfgAddress').value=S.settings.address||'';
   U.el('cfgBoard').value=S.settings.board||'';
   
-  // Always pre-fill the Firebase config from the screenshot
   const saved=JSON.parse(localStorage.getItem('em_firebase_config')||'{}');
   const cfg = Object.keys(saved).length ? saved : FIREBASE_CONFIG;
   U.el('fbApiKey').value=cfg.apiKey||FIREBASE_CONFIG.apiKey;
@@ -1979,7 +1894,7 @@ function saveFirebaseConfig() {
 }
 
 // ═══════════════════════════════════════════════════
-// EXPORT
+// EXPORTS & DEMO DATA
 // ═══════════════════════════════════════════════════
 function exportStudentsExcel() {
   if(!window.XLSX){Toast.error('Library loading...');return;}
@@ -2078,39 +1993,26 @@ function exportFullReportExcel() {
   Toast.success('Excel Report Exported!');
 }
 
-// ═══════════════════════════════════════════════════
-// DATA MANAGEMENT
-// ═══════════════════════════════════════════════════
 function loadDemoData() {
   S.settings={schoolName:'Sunrise Public School',academicYear:'2024-25',phone:'+91 98765 00000',address:'Near Civil Lines, Lucknow, UP',board:'CBSE'};
   
-  // Fee structure setup
   S.feeStructure={
     '10':{tuition:{amount:4000,enabled:true},computer:{amount:300,enabled:true},science:{amount:200,enabled:true},sports:{amount:150,enabled:true},library:{amount:50,enabled:true},exam:{amount:200,enabled:false},development:{amount:100,enabled:true},miscellaneous:{amount:0,enabled:false}},
     '9':{tuition:{amount:3500,enabled:true},computer:{amount:250,enabled:true},science:{amount:150,enabled:true},sports:{amount:100,enabled:true},library:{amount:50,enabled:true},exam:{amount:150,enabled:false},development:{amount:100,enabled:true},miscellaneous:{amount:0,enabled:false}},
   };
-  // Fill rest with defaults
   Array.from({length:12},(_,i)=>String(i+1)).forEach(cls=>{
     if(!S.feeStructure[cls]) S.feeStructure[cls]={tuition:{amount:3000,enabled:true},computer:{amount:200,enabled:true},science:{amount:150,enabled:false},sports:{amount:100,enabled:false},library:{amount:50,enabled:true},exam:{amount:100,enabled:false},development:{amount:100,enabled:true},miscellaneous:{amount:0,enabled:false}};
   });
   
   S.students=[
     {id:'d1',name:'Rahul Sharma',class:'10',roll:'1001',dob:'2010-06-15',father:'Rajesh Sharma',mother:'Sunita Sharma',phone:'9876543210',email:'rahul@email.com',address:'123 Main St, Lucknow',status:'active',conveyance:500,busRoute:'Route A - Hazratganj',createdAt:new Date(Date.now()-864e5*20).toISOString()},
-    {id:'d2',name:'Priya Patel',class:'10',roll:'1002',dob:'2010-03-22',father:'Mukesh Patel',mother:'Kavita Patel',phone:'9876543211',email:'priya@email.com',address:'456 Park Ave, Lucknow',status:'active',conveyance:600,busRoute:'Route B - Gomti Nagar',createdAt:new Date(Date.now()-864e5*18).toISOString()},
-    {id:'d3',name:'Amit Kumar',class:'9',roll:'901',dob:'2011-09-08',father:'Suresh Kumar',mother:'Anita Kumar',phone:'9876543212',email:'amit@email.com',address:'789 Civil Lines, Lucknow',status:'active',conveyance:0,busRoute:'',createdAt:new Date(Date.now()-864e5*15).toISOString()},
-    {id:'d4',name:'Sneha Gupta',class:'9',roll:'902',dob:'2011-01-14',father:'Rakesh Gupta',mother:'Meena Gupta',phone:'9876543213',email:'sneha@email.com',address:'321 Hazratganj, Lucknow',status:'active',conveyance:450,busRoute:'Route C - Aliganj',createdAt:new Date(Date.now()-864e5*12).toISOString()},
-    {id:'d5',name:'Rohan Singh',class:'8',roll:'801',dob:'2012-07-30',father:'Vikram Singh',mother:'Priya Singh',phone:'9876543214',email:'rohan@email.com',address:'654 Gomti Nagar, Lucknow',status:'active',conveyance:500,busRoute:'Route B - Gomti Nagar',createdAt:new Date(Date.now()-864e5*10).toISOString()},
-    {id:'d6',name:'Ananya Iyer',class:'11',roll:'1101',dob:'2009-11-25',father:'Krishnan Iyer',mother:'Lakshmi Iyer',phone:'9876543215',email:'ananya@email.com',address:'890 Aliganj, Lucknow',status:'active',conveyance:0,busRoute:'',createdAt:new Date(Date.now()-864e5*8).toISOString()},
-    {id:'d7',name:'Varun Malhotra',class:'12',roll:'1201',dob:'2008-04-12',father:'Sunil Malhotra',mother:'Renu Malhotra',phone:'9876543216',email:'varun@email.com',address:'234 Indira Nagar, Lucknow',status:'active',conveyance:550,busRoute:'Route A - Hazratganj',createdAt:new Date(Date.now()-864e5*5).toISOString()},
-    {id:'d8',name:'Kavya Reddy',class:'7',roll:'701',dob:'2013-08-18',father:'Venkat Reddy',mother:'Sree Reddy',phone:'9876543217',email:'kavya@email.com',address:'567 Rajajipuram, Lucknow',status:'active',conveyance:400,busRoute:'Route D - Rajajipuram',createdAt:new Date(Date.now()-864e5*3).toISOString()},
-    {id:'d9',name:'Dev Sharma',class:'6',roll:'601',dob:'2014-02-05',father:'Anil Sharma',mother:'Pooja Sharma',phone:'9876543218',email:'dev@email.com',address:'432 Alambagh, Lucknow',status:'inactive',conveyance:0,busRoute:'',createdAt:new Date(Date.now()-864e5*2).toISOString()},
-    {id:'d10',name:'Isha Joshi',class:'11',roll:'1102',dob:'2009-12-30',father:'Pramod Joshi',mother:'Seema Joshi',phone:'9876543219',email:'isha@email.com',address:'876 Vikas Nagar, Lucknow',status:'active',conveyance:500,busRoute:'Route A - Hazratganj',createdAt:new Date().toISOString()}
+    {id:'d2',name:'Priya Patel',class:'10',roll:'1002',dob:'2010-03-22',father:'Mukesh Patel',mother:'Kavita Patel',phone:'9876543211',email:'priya@email.com',address:'456 Park Ave, Lucknow',status:'active',conveyance:600,busRoute:'Route B - Gomti Nagar',createdAt:new Date(Date.now()-864e5*18).toISOString()}
   ];
   
   const months=['2025-01','2025-02','2025-03'];
   S.fees=[];
   months.forEach((mo,mi)=>{
-    S.students.slice(0,8).forEach((s,i)=>{
+    S.students.forEach((s,i)=>{
       const {total,breakdown}=calcStudentFee(s,mo);
       const paid=Math.random()>0.3;
       S.fees.push({
@@ -2128,11 +2030,9 @@ function loadDemoData() {
   S.attendance={};
   const today=U.today();
   S.attendance[today+'_10']={d1:'P',d2:'P'};
-  S.attendance[today+'_9']={d3:'P',d4:'A'};
   
   S.alerts=[
-    {id:U.id(),type:'fee',message:'Dear Parents, Fee for January 2025 is due.',recipients:'all',recipientCount:10,sentAt:new Date(Date.now()-3600000).toISOString(),sentBy:'admin@school.com'},
-    {id:U.id(),type:'absent',message:'Dear Parent, Your ward was absent today.',recipients:'class',recipientCount:3,sentAt:new Date(Date.now()-7200000).toISOString(),sentBy:'admin@school.com'}
+    {id:U.id(),type:'fee',message:'Dear Parents, Fee is due.',recipients:'all',recipientCount:2,sentAt:new Date(Date.now()-3600000).toISOString(),sentBy:'admin@school.com'}
   ];
   
   save();
@@ -2180,11 +2080,7 @@ async function clearAllData() {
   Toast.warning('Data Cleared','All data removed');
 }
 
-// ═══════════════════════════════════════════════════
-// FIREBASE INIT — FIXED
-// ═══════════════════════════════════════════════════
 function initFirebase() {
-  // Use saved config or default from screenshot
   let config;
   try {
     const saved=localStorage.getItem('em_firebase_config');
@@ -2202,7 +2098,6 @@ function initFirebase() {
     S.auth=firebase.auth();
     S.db=firebase.firestore();
     
-    // Enable offline persistence
     S.db.enablePersistence({synchronizeTabs:true}).catch(err=>{
       if(err.code==='failed-precondition') console.warn('Multiple tabs open — persistence only works in one tab');
       else if(err.code==='unimplemented') console.warn('Browser does not support persistence');
@@ -2217,18 +2112,13 @@ function initFirebase() {
   }
 }
 
-// ═══════════════════════════════════════════════════
-// INIT
-// ═══════════════════════════════════════════════════
 document.addEventListener('DOMContentLoaded', ()=>{
-  // Theme
   const savedTheme=localStorage.getItem('em_theme');
   if(savedTheme) {
     document.documentElement.dataset.theme=savedTheme;
     if(savedTheme==='light') U.el('themeIcon').innerHTML='<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
   }
   
-  // Remember login
   const remEmail=localStorage.getItem('em_remember_email');
   const remRole=localStorage.getItem('em_remember_role');
   if(remEmail){U.el('loginEmail').value=remEmail;U.el('rememberMe').checked=true;}
@@ -2237,10 +2127,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
   U.el('attDate').value=U.today();
   U.el('feeMonthFilter').value=U.month();
   
-  // Init Firebase with the config from screenshot
   initFirebase();
   
-  // Auto-login via Firebase session
   if(S.firebaseReady && S.auth) {
     S.auth.onAuthStateChanged(async user=>{
       if(user && U.el('loginPage').style.display!=='none') {
@@ -2252,15 +2140,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   }
   
-  // WhatsApp template default
   U.el('waMsg').value=WA_TEMPLATES.fee.replace('{school_name}','School Admin').replace('{school_phone}','school number').replace('{date}',U.fmtDate(U.today())).replace('{month}',U.fmtMonth(U.month()));
   updateWaCount();
   
   U.el('loginInfo').style.display='block';
-  console.log('EduManage Pro v4.0 — Firebase Fixed + Fee Structure Ready ✓');
+  console.log('EduManage Pro v4.0 — Firebase Real-Time Fixed ✓');
 });
 
-// Keyboard shortcuts
 U.el('loginPassword')?.addEventListener('keydown',e=>{if(e.key==='Enter')handleLogin();});
 U.el('loginEmail')?.addEventListener('keydown',e=>{if(e.key==='Enter')U.el('loginPassword').focus();});
 ['loginEmail','loginPassword'].forEach(id=>{U.el(id)?.addEventListener('input',()=>{U.el(id).classList.remove('error');U.el('loginError').style.display='none';});});
